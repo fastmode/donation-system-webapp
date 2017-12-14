@@ -20,6 +20,26 @@ $secondary-bg-dark:  #3C3B3B;
 $selection-bg-color: #b3d4fc;
 $giftaid-bg:         #E2DED3;
 
+$base-font-family: 'HelveticaNeueLTPro-Lt', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$titles-font-family: 'Stag-Book', georgia, 'Times New Roman', serif;
+$titles-font-family-italic: 'Stag-BookItalic', georgia, 'Times New Roman', serif;
+$titles-font-family-bold: 'Stag-Bold', georgia, 'Times New Roman', serif;
+$base-font-size: 18px;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit: 2em;
+
+$text-color:         #181818;
+$text-color-light:   #4A4A4A;
+$main-color:         #B33F28;
+$main-color-dark:    #952B16;
+$background-color:   #F3EFEF;
+$secondary-bg:       #BFBEBE;
+$secondary-bg-dark:  #3C3B3B;
+$selection-bg-color: #b3d4fc;
+$giftaid-bg:         #E2DED3;
+
 @import
   'normalize',
   'fonts',
