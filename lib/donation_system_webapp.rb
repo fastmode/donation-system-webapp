@@ -14,14 +14,14 @@ class DonationSystemWebapp < Sinatra::Base
 
   get '/' do
     @page = Page::Home.new
-    erb :home
+    erb :form
   end
 
   post '/donations' do
     errors = Donations.donate(params)
     redirect '/success' if errors.empty?
     @page = Page::Error.new(errors)
-    erb :error
+    erb :form
   end
 
   get '/success' do

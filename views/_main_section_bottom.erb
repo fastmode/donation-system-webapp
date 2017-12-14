@@ -1,0 +1,21 @@
+<div class="main-section-bottom">
+  <div class="donation-giftaid">
+    <h2><%= @page.form.ui(:giftaid_title) %></h2>
+    <p><%= @page.form.ui(:giftaid_description) %></p>
+
+    <p>
+      <input class="visuallyhidden" id="giftaid-yes" type="radio" name="giftaid" value="yes">
+      <label for="giftaid-yes"><strong><%= @page.form.ui(:giftaid_yes_title) %></strong> <%= @page.form.ui(:giftaid_yes_description) %></label>
+    </p>
+
+    <p>
+      <input class="visuallyhidden" id="giftaid-no" type="radio" name="giftaid" value="no">
+      <label for="giftaid-no"><strong><%= @page.form.ui(:giftaid_no_title) %></strong> <%= @page.form.ui(:giftaid_no_description) %></label>
+    </p>
+  </div>
+
+  <div class="main-section-bottom-footer">
+    <p><%= @page.form.ui(:payment_method) %></p>
+    <button id="submit-button" type="submit"><%= @page.form.ui(:submit_button) %></button>
+  </div>
+</div>
