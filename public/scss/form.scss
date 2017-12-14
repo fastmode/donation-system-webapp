@@ -1,0 +1,148 @@
+$form-arrow-height: 2em;
+
+.donation-type {
+  display: flex;
+}
+
+.monthly,
+.one-off {
+  flex: 1;
+
+  label {
+    position: relative;
+    display: block;
+    margin: 0 0 $form-arrow-height / 2;
+    padding: 1em;
+    font: 1em $titles-font-family-bold;
+    text-align: center;
+    color: #fff;
+    background-color: $secondary-bg;
+    cursor: pointer;
+  }
+}
+
+[name=donationtype]:checked ~ label {
+  background: $secondary-bg-dark;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    height: $form-arrow-height;
+  }
+
+  &::before {
+    background: linear-gradient(to top right, $background-color 49%, $secondary-bg-dark 51%);
+  }
+
+  &::after {
+    background: linear-gradient(to top left, $background-color 49%, transparent 51%);
+  }
+}
+
+.donation-amount {
+  padding: 0 1em;
+  font: 1em $titles-font-family;
+}
+
+.amount {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1em;
+  font: 1em $base-font-family;
+
+  input {
+    flex: 1;
+    margin-left: 2em;
+    padding: 0.5em 1em;
+    line-height: 2;
+    border-radius: $form-border-radius;
+    border: 2px solid #ddd;
+  }
+}
+
+.donation-giftaid,
+.main-section-bottom-footer {
+  padding: 1em;
+}
+
+.donation-giftaid {
+  background-color: $giftaid-bg;
+
+  h2 {
+    margin: 0;
+    padding: .5em 0;
+    font: 1.2em $titles-font-family-bold;
+  }
+}
+
+[name=giftaid] ~ label {
+  position: relative;
+  display: inline-block;
+  padding-left: 3em;
+  cursor: pointer;
+}
+
+[name=giftaid] ~ label::before {
+  content: 'X';
+  display: block;
+  position: absolute;
+  top: 0; left: 0;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+  font-family: sans-serif;
+  color: transparent;
+  background-color: #fff;
+  border-radius: .2em;
+}
+
+[name=giftaid]:checked ~ label::before {
+  color: $text-color;
+}
+
+#submit-button {
+  display: block;
+  width: 100%;
+  padding: 1em;
+  font: 1.3em $titles-font-family-bold;
+  color: #fff;
+  background-color: $main-color;
+  border-radius: $form-border-radius;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.errors {
+  color: $main-color;
+}
+
+.donation-thanks {
+  background-color: $secondary-bg-dark;
+  text-align: center;
+  padding: 1em;
+  font: 1.5em $titles-font-family-bold;
+  text-align: center;
+  color: #fff;
+  border-radius: $form-border-radius $form-border-radius 0 0;
+}
+
+.main-section-bottom-footer {
+  h2 {
+    text-align: center;
+    padding: .5em 0;
+    font-family: $titles-font-family;
+  }
+
+  p {
+    color: $text-color-light;
+  }
+}
+
+.addthis_inline_share_toolbox {
+  text-align: center;
+  padding-bottom: 2em;
+}

@@ -1,0 +1,49 @@
+<form action="/donations" method="post" id="payment-form">
+
+  <div class="page-top">
+    <h1 class="page-title"><%= @page.title %></h1>
+    <%= erb :_main_section_top %>
+    <%= erb :_secondary_section_top %>
+  </div>
+
+  <div class="page-bottom">
+    <%= erb :_main_section_bottom %>
+    <%= erb :_secondary_section_bottom %>
+  </div>
+
+</form>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script src="/js/bundle.js"></script>
+
+<script type="text/javascript">
+(function() {
+  var uiConfig, stripeConfig, checkoutParams;
+
+  uiConfig = {
+    formIdSelector: 'payment-form',
+    submitIdSelector: 'submit-button',
+    amountIdSelector: 'amount'
+  };
+
+  stripeConfig = {
+    key: '<%= settings.stripe_public_key %>',
+    image: '/icon.png',
+    locale: 'en',
+    token: UI.submitFormWithCustomFields
+  };
+
+  checkoutParams = {
+    name: 'Survival International',
+    description: '<%= @page.form.ui(:stripe_description) %>',
+    currency: 'GBP',
+    billingAddress: true,
+    zipCode: true
+  };
+
+  UI.setup(uiConfig);
+  StripeWrapper.setup(UI, stripeConfig, checkoutParams);
+  StripeWrapper.registerListeners();
+})();
+</script>

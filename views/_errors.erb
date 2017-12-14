@@ -1,0 +1,11 @@
+<div class="errors">
+  <p><%= @page.ui(:explanation) %></p>
+
+  <ul>
+    <% @page.error_list.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+
+  <h2><%= @page.ui(:retry_message) %></h2>
+</div>

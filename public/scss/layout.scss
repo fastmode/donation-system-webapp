@@ -1,0 +1,146 @@
+// The form is divided in two sections, top and bottom
+// This is so that we can make the top image expand
+// and the top of the giftaid section coincide with image end
+
+$form-border-radius: .3em;
+
+.page-top,
+.page-bottom {
+  padding: 0 1em;
+  background-color: $main-color;
+}
+
+.page-top {
+  padding-top: 2em;
+}
+
+.page-bottom {
+  padding-bottom: 2em;
+}
+
+.page-title {
+  width: 5em;
+  margin: 0;
+  padding: .8em 0;
+  color: #fff;
+  font-size: 3.5em;
+  line-height: 100%
+}
+
+.main-section-top,
+.main-section-bottom,
+.secondary-section-top,
+.secondary-section-bottom {
+  box-sizing: border-box;
+}
+
+.main-section-top,
+.main-section-bottom {
+  background-color: $background-color;
+  overflow: hidden;
+}
+
+.main-section-top {
+  border-radius: $form-border-radius $form-border-radius 0 0;
+}
+
+.main-section-bottom {
+  border-radius: 0 0 $form-border-radius $form-border-radius;
+}
+
+.main-section-top,
+.secondary-section-top {
+  vertical-align: bottom;
+}
+
+.main-section-bottom,
+.secondary-section-bottom {
+  vertical-align: top;
+}
+
+.secondary-section-top,
+.secondary-section-bottom {
+  color: #fff;
+}
+
+.secondary-section-top {
+  display: none;
+
+  blockquote {
+    max-width: 16em;
+    margin-left: 0;
+  }
+}
+
+.secondary-section-top__body,
+.secondary-section-top__footer {
+  margin: 0;
+}
+
+.secondary-section-top__body {
+  font: 1.8em/1.2 $titles-font-family-italic;
+}
+
+.secondary-section-top__footer {
+  padding: .5em 0;
+  font: 1.3em $titles-font-family;
+
+  strong {
+    font-family: $titles-font-family-bold;
+  }
+}
+
+.secondary-section-bottom {
+  padding-top: 2em;
+  font-family: $titles-font-family;
+
+  h2 {
+    font-family: $titles-font-family-bold;
+    letter-spacing: 1px;
+  }
+}
+
+.more-info {
+  display: block;
+  padding: 1em;
+  font-size: 1.3em;
+  text-decoration: none;
+  color: #fff;
+  background-color: $main-color-dark;
+}
+
+.charity-info {
+  padding-top: 3em;
+  font: bold 1em/150% $base-font-family;
+  color: $text-color;
+}
+
+@media only screen and (min-width: 55em) {
+  .page-top {
+    background-image: url(https://assets.survivalinternational.org/pictures/1223/foto-gleilson-miranda-11935069-cropped-copy_940_wide.jpg);
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .main-section-top,
+  .secondary-section-top,
+  .main-section-bottom,
+  .secondary-section-bottom {
+    display: inline-block;
+    width: 49%;
+  }
+
+  .secondary-section-top,
+  .secondary-section-bottom {
+    padding-left: 6em;
+  }
+}
+
+@media only screen and (min-width: 90em) {
+  $page-sides-padding: calc(50% - 35em);
+  .page-top,
+  .page-bottom {
+    padding-right: $page-sides-padding;
+    padding-left: $page-sides-padding;
+  }
+}

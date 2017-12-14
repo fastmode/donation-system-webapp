@@ -1,0 +1,25 @@
+<div class="main-section-top">
+  <div class="donation-type">
+    <div class="monthly">
+      <input type="radio" class="visuallyhidden" id="monthly" name="donationtype" checked>
+      <label for="monthly"><%= @page.form.ui(:donation_type) %></label>
+    </div>
+
+    <div class="one-off">
+      <input type="radio" class="visuallyhidden" id="one-off" name="donationtype">
+      <label for="one-off"><%= @page.form.ui(:donation_type) %></label>
+    </div>
+  </div>
+
+  <div class="donation-amount">
+
+    <%= erb :_errors if @page.respond_to?(:error_list) %>
+
+    <p><%= @page.form.ui(:currency) %></p>
+
+    <div class="amount">
+      <label for="amount"><%= @page.form.ui(:amount) %></label>
+      <input name="amount" type="number" id="amount" min="0.00" step="0.01" required />
+    </div>
+  </div>
+</div>
