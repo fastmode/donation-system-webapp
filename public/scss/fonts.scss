@@ -1,0 +1,31 @@
+$font-cdn: 'https://assets.survivalinternational.org/webfonts/';
+
+@font-face {
+  font-family: 'Stag-Bold';
+  src: url("#{$font-cdn}" + 'eot/Stag-Bold-Web.eot?#iefix') format('embedded-opentype'),
+       url("#{$font-cdn}" + 'woff/Stag-Bold-Web.woff') format('woff'),
+       url("#{$font-cdn}" + 'ttf/Stag-Bold-Web.ttf')  format('truetype'),
+       url("#{$font-cdn}" + 'svg/Stag-Bold-Web.svg#Stag-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stag-Book';
+  src: url("#{$font-cdn}" + 'eot/Stag-Book-Web.eot?#iefix') format('embedded-opentype'),
+       url("#{$font-cdn}" + 'woff/Stag-Book-Web.woff') format('woff'),
+       url("#{$font-cdn}" + 'ttf/Stag-Book-Web.ttf')  format('truetype'),
+       url("#{$font-cdn}" + 'svg/Stag-Book-Web.svg#Stag-Book') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stag-BookItalic';
+  src: url("#{$font-cdn}" + 'eot/Stag-BookItalic-Web.eot?#iefix') format('embedded-opentype'),
+       url("#{$font-cdn}" + 'woff/Stag-BookItalic-Web.woff') format('woff'),
+       url("#{$font-cdn}" + 'ttf/Stag-BookItalic-Web.ttf')  format('truetype'),
+       url("#{$font-cdn}" + 'svg/Stag-BookItalic-Web.svg#Stag-BookItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

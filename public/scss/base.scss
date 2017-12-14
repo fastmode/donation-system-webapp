@@ -11,9 +11,10 @@
    ========================================================================== */
 
 html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
+    color: $text-color;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
 }
 
 /*
@@ -27,12 +28,12 @@ html {
  */
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: $selection-bg-color;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: $selection-bg-color;
     text-shadow: none;
 }
 
