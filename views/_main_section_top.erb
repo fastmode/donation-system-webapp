@@ -17,6 +17,8 @@
 
     <p><%= @page.form.ui(:currency) %></p>
 
+    <%# erb :_tabs %>
+
     <div class="amount">
       <label for="amount"><%= @page.form.ui(:amount) %></label>
       <input name="amount" type="number" id="amount" min="0.00" step="0.01" required />
