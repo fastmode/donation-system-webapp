@@ -1,0 +1,147 @@
+$form-elements-border-radius: .3em;
+$form-border-radius: $form-elements-border-radius + .2em;
+
+.page-top,
+.page-bottom {
+  padding: 0 1em;
+  background-color: $main-color;
+}
+
+.page-top {
+  padding-top: $spacing-unit;
+}
+
+.page-bottom {
+  padding-bottom: $spacing-unit;
+}
+
+.page-title {
+  width: 5em;
+  margin: 0;
+  padding: .8em 0;
+  color: #fff;
+  font-size: 3.5em;
+  line-height: 100%
+}
+
+.form-container,
+.secondary-section-top,
+.secondary-section-bottom {
+  box-sizing: border-box;
+}
+
+.form-container {
+  padding: 0 calc(50% - 13.5em);
+}
+
+form {
+  background-color: $background-color;
+  border-radius: $form-border-radius;
+  overflow: hidden;
+}
+
+.secondary-section-top,
+.secondary-section-bottom {
+  color: #fff;
+}
+
+.secondary-section-top {
+  display: none;
+
+  blockquote {
+    max-width: 16em;
+    margin-left: 0;
+  }
+}
+
+.secondary-section-top__body,
+.secondary-section-top__footer {
+  margin: 0;
+}
+
+.secondary-section-top__body {
+  font: 1.8em/1.2 $titles-font-family-italic;
+}
+
+.secondary-section-top__footer {
+  padding: .5em 0;
+  font: 1.3em $titles-font-family;
+
+  strong {
+    font-family: $titles-font-family-bold;
+  }
+}
+
+.secondary-section-bottom {
+  padding-top: $spacing-unit;
+  font-family: $titles-font-family;
+
+  h2 {
+    font-family: $titles-font-family-bold;
+    letter-spacing: 1px;
+  }
+}
+
+.more-info {
+  display: block;
+  padding: 1em;
+  font-size: 1.3em;
+  text-decoration: none;
+  color: #fff;
+  background-color: $main-color-dark;
+}
+
+.charity-info {
+  padding-top: 3em;
+  font: bold 1em/150% $base-font-family;
+  color: $text-color;
+}
+
+@media only screen and (min-width: 55em) {
+  $form-pull: 40em;
+  $horizontal-form-spacing: 2.5%;
+
+  .page-top {
+    min-height: $form-pull;
+    background-image: url(https://assets.survivalinternational.org/pictures/1223/foto-gleilson-miranda-11935069-cropped-copy_940_wide.jpg);
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .secondary-section-top {
+    display: inline-block;
+    position: relative;
+    left: 50%; top: $form-pull - 11em;
+    margin-left: $horizontal-form-spacing;
+  }
+
+  .page-bottom {
+    display: flex;
+  }
+
+  .form-container,
+  .secondary-section-bottom {
+    flex: 1;
+    display: inline-block;
+    width: 48%;
+  }
+
+  .form-container {
+    position: relative;
+    top: -$form-pull;
+    padding: 0;
+  }
+
+  .secondary-section-bottom {
+    margin-left: $horizontal-form-spacing * 2;
+  }
+}
+
+@media only screen and (min-width: 90em) {
+  $page-sides-padding: calc(50% - 35em);
+  .page-top,
+  .page-bottom {
+    padding-right: $page-sides-padding;
+    padding-left: $page-sides-padding;
+  }
+}

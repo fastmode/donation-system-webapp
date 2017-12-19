@@ -1,25 +1,80 @@
-<form action="/donations" method="post" id="payment-form">
-  <p><%= @page.form.ui(:donation_type) %></p>
-  <p><%= @page.form.ui(:currency) %></p>
-  <p>
-    <label for="amount"><%= @page.form.ui(:amount) %></label>
-    <input name="amount" type="number" id="amount" min="0.00" step="0.01" required />
-  </p>
-  <h2><%= @page.form.ui(:giftaid_title) %></h2>
-  <p><%= @page.form.ui(:giftaid_description) %></p>
-  <p>
-    <input id="giftaid-yes" type="radio" name="giftaid" value="yes">
-    <label for="giftaid-yes"><strong><%= @page.form.ui(:giftaid_yes_title) %></strong> <%= @page.form.ui(:giftaid_yes_description) %></label>
-  </p>
-  <p>
-    <input id="giftaid-no" type="radio" name="giftaid" value="no">
-    <label for="giftaid-no"><strong><%= @page.form.ui(:giftaid_no_title) %></strong> <%= @page.form.ui(:giftaid_no_description) %></label>
-  </p>
-  <p><%= @page.form.ui(:payment_method) %></p>
-  <p>
-    <button id="submit-button" type="submit"><%= @page.form.ui(:submit_button) %></button>
-  </p>
-</form>
+<div class="form-container">
+  <h1 class="page-title"><%= @page.title %></h1>
+
+  <form action="/donations" method="post" id="payment-form">
+    <div class="donation-type">
+      <div class="monthly">
+        <input type="radio" class="visuallyhidden" id="monthly" name="donationtype" checked>
+        <label for="monthly"><%= @page.form.ui(:donation_type) %></label>
+      </div>
+
+      <div class="one-off">
+        <input type="radio" class="visuallyhidden" id="one-off" name="donationtype">
+        <label for="one-off"><%= @page.form.ui(:donation_type) %></label>
+      </div>
+    </div>
+
+    <div class="donation-amount">
+      <%= erb :_errors if @page.respond_to?(:error_list) %>
+
+      <p><%= @page.form.ui(:currency) %></p>
+
+      <div class="tabs">
+        <div class="tab">
+          <input type="radio" class="visuallyhidden" id="first-amount" name="proposed-amounts" value="10">
+          <label for="first-amount">£10</label>
+          <div class="content">
+            <img src="http://i.imgur.com/OTSA6eX.jpg" width="200" height="200" alt="alt">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor molestie augue ac ultrices £10</p>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="radio" class="visuallyhidden" id="second-amount" name="proposed-amounts" value="20">
+          <label for="second-amount">£20</label>
+          <div class="content">
+            <img src="http://www.animal-photography.com/thumbs/two_kittens_tabby_and_black~AP-OAF15T-TH.jpg" width="200" height="200" alt="alt">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor molestie augue ac ultrices £20</p>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="radio" class="visuallyhidden" id="third-amount" name="proposed-amounts" value="30" checked>
+          <label for="third-amount">£30</label>
+          <div class="content">
+            <img src="https://biggeekdad-wpengine.netdna-ssl.com/wp-content/uploads/2016/02/Dear-Kitten-Beginning-min.jpg" width="200" height="200" alt="alt">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor molestie augue ac ultrices £30</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="amount">
+        <label for="amount"><%= @page.form.ui(:amount) %></label>
+        <input name="amount" type="number" id="amount" min="0.00" step="0.01" required />
+      </div>
+    </div>
+
+    <div class="donation-giftaid">
+      <h2><%= @page.form.ui(:giftaid_title) %></h2>
+      <p><%= @page.form.ui(:giftaid_description) %></p>
+
+      <p>
+        <input class="visuallyhidden" id="giftaid-yes" type="radio" name="giftaid" value="yes">
+        <label for="giftaid-yes"><strong><%= @page.form.ui(:giftaid_yes_title) %></strong> <%= @page.form.ui(:giftaid_yes_description) %></label>
+      </p>
+
+      <p>
+        <input class="visuallyhidden" id="giftaid-no" type="radio" name="giftaid" value="no">
+        <label for="giftaid-no"><strong><%= @page.form.ui(:giftaid_no_title) %></strong> <%= @page.form.ui(:giftaid_no_description) %></label>
+      </p>
+    </div>
+
+    <div class="form-footer">
+      <p><%= @page.form.ui(:payment_method) %></p>
+      <button id="submit-button" type="submit"><%= @page.form.ui(:submit_button) %></button>
+    </div>
+  </form>
+</div>
 
 <script src="https://js.stripe.com/v3/"></script>
 <script src="https://checkout.stripe.com/checkout.js"></script>

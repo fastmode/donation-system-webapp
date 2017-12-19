@@ -1,0 +1,66 @@
+$tabs-height: 16em;
+$label-height: 4.5em;
+
+.tabs {
+  display: none;
+  position: relative;
+  min-height: $tabs-height; /* This line is awful but */
+}
+
+.tab label {
+  position: relative;
+  display: block;
+  margin: 0 .5em;
+  padding: .8em;
+  text-align: center;
+  color: #fff;
+  background-color: $secondary-bg;
+  border-radius: .3em;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  position: absolute;
+  top: $label-height; left: 0; right: 0;
+  padding: 0;
+  font: $small-font-size $base-font-family;
+  color: #fff;
+  background-color: $main-color;
+  overflow: hidden;
+
+  p {
+    margin: 0;
+    padding: 2em;
+  }
+}
+
+[name=proposed-amounts]:checked ~ label {
+    background: $main-color;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border: .5em solid transparent;
+      border-top-color: $main-color;
+    }
+
+    ~ .content {
+      z-index: 1;
+    }
+  }
+
+@media only screen and (min-width: 55em) {
+  .tabs {
+    display: flex;
+    align-content: space-around;
+  }
+
+  .tab {
+    flex: 1;
+  }
+}
