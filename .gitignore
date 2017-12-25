@@ -3,4 +3,6 @@ coverage
 .ruby-version
 node_modules
 public/js/lib
+public/js/bundle.js
+public/css/main.css
 credentials
