@@ -17,7 +17,7 @@ The web app for Survival's donation system.
 Run the one-off setup script (**Beware:** Needs permissions to access the credentials repo):
 
 ```
-. scripts/setup.sh
+. ./scripts/setup.sh
 ```
 
 This script will:
@@ -25,6 +25,7 @@ This script will:
 * unzip it and copy the `lib` folder inside of the `public/js/` folder
 * delete the `temp` directory
 * download the credentials
+* add the Heroku remotes to your local git repository
 * run `npm install` to install the node packages
 * run `bundle install` to install gems.
 * run `bundle exec rake` to run the tests.

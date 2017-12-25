@@ -13,8 +13,16 @@ module ErrorMessages
     multipart_upload_error: 'Multipart AWS S3 upload error'
   }.freeze
 
+  HEROKU_CLIENT_ERRORS = {
+    missing_credentials: 'Missing Heroku credentials',
+    invalid_app_name: 'Heroku app name not found, or belongs to another user',
+    malformed_env_vars: 'Malformed hash of Heroku env vars',
+    problems_pushing: 'Problems pushing to Heroku. Upstream and branch:'
+  }.freeze
+
   ERROR_MESSAGES = FILE_HELPER_ERRORS
                    .merge(AMAZON_FILE_UPLOADER_ERRORS)
+                   .merge(HEROKU_CLIENT_ERRORS)
 
   def join(*args)
     args.join(' ')
