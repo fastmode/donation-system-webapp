@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module ConfigConstants
+  DEVELOPMENT = 'development'
   STAGING = 'staging'
   PRODUCTION = 'production'
 
@@ -20,6 +21,9 @@ module ConfigConstants
   STAGING_BUCKET_NAME = 'assets-development.survivalinternational.org'
   PRODUCTION_BUCKET_NAME = 'assets-production.survivalinternational.org'
   BUCKET_PATH = 'donation-system-webapp'
+
+  STAGING_URL = "https://#{STAGING_BUCKET_NAME}/#{BUCKET_PATH}"
+  PRODUCTION_URL = "https://#{PRODUCTION_BUCKET_NAME}/#{BUCKET_PATH}"
 
   STAGING_ARGS = {
     bucket_name: STAGING_BUCKET_NAME,
