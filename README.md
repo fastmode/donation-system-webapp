@@ -66,7 +66,6 @@ bundle exec rspec path/to/test/file.rb:TESTLINENUMBER
 
 ## Frontend
 
-
 ### To run the JavaScript tests
 
 Run:
@@ -91,9 +90,72 @@ and then visit:
 <http://localhost:9292>
 
 
+## Deploying
+
+This webapp is hosted in Heroku and uploads static assets to Amazon S3. It's using the [AWS SDK for Ruby](http://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/welcome.html) and [Heroku's Platform API gem](https://devcenter.heroku.com/articles/platform-api-reference).
+
+
+### Requirements
+
+You will need to [download and install the Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line) for your operating system. Log in to your Heroku account and follow the prompts to create a new SSH public key.
+
+```bash
+heroku login
+```
+
+Then make sure that you have the Heroku staging and production upstreams for this webapp in your local git repository (if not, run the `scripts/setup.sh` file):
+
+```bash
+git push staging master
+```
+
+
+### How to deploy
+
+To staging:
+
+```bash
+bundle exec rake deploy:staging
+```
+
+To production:
+
+```bash
+bundle exec rake deploy:production
+```
+
+This will:
+* Append a timestamp to `main.css` and `bundle.js` before uploading them to S3, to force browser recaching when the files change.
+* upload the main styles file and the bundle JavaScript file to Amazon S3.
+* deploy the site to Heroku-staging or Heroku-production
+
+Please check `lib/config_constants.rb` for details on paths, bucket names, etc.
+
+
+### Generating the right paths in the rendered views
+
+The `href` attribute of the main styles link tag and the `src` attribute of the bundle script tag are calculated taking into account if you are in development, staging or production. The files are uploaded to different buckets so that deploying assets to staging doesn't break production.
+
+* In DEVELOPMENT, they would point to `css/main.css` and `js/bundle.js`.
+
+* In STAGING:
+  - bucket in AWS S3: `assets-development.survivalinternational.org`,
+  - css path: `donation-system-webapp/css/main-YYY-MM-DD.css`
+  - js path: `donation-system-webapp/js/bundle-YYY-MM-DD.js`
+
+* In PRODUCTION:
+  - bucket in AWS S3, `assets-production.survivalinternational.org`,
+  - css path: `donation-system-webapp/css/main-YYY-MM-DD.css`
+  - js path: `donation-system-webapp/js/bundle-YYY-MM-DD.js`
+
+* In order for this to work in Heroku, the timestamped filenames of the files uploaded to Amazon are passed to Heroku by storing them in environment variables in Heroku staging and Heroku production.
+
+The `donation-system-webapp` path is public in both buckets.
+
+
 ## Contributing
 
-Please check out our [contribution guides](https://github.com/survival/contributing-guides) and our [code of conduct](https://github.com/survival/contributing-guides/blob/master/code-of-conduct.md)
+Please check out our [Contributing guides](https://github.com/survival/contributing-guides) and our [Code of conduct](https://github.com/survival/contributing-guides/blob/master/code-of-conduct.md)
 
 
 ## License
