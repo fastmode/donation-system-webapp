@@ -9,3 +9,7 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
     - 'node_modules'
+
+Style/FormatStringToken:
+  Exclude:
+    - 'lib/deploy/file_helper.rb'
