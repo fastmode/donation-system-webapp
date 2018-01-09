@@ -153,6 +153,20 @@ The `href` attribute of the main styles link tag and the `src` attribute of the 
 The `donation-system-webapp` path is public in both buckets.
 
 
+## Updating
+
+There are a couple things in place to keep this repository up to date:
+
+* **Updating gems:** There is a service called depfu that will automatically monitor our `Gemfile.lock` and submit a PR everytime a gem is updated. This PRs should be tested and merged as they happen.
+* **Updating npm modules:** Gemnasium not only provides a badge for the README informing that our gems are up to date, but also notifies of npm modules out of date.
+* **Updating Jasmine:** There is no automatic notification system in place, but if a new release is out, you just have to update the version of `scripts/setup_jasmine.sh` and run it
+* **Updating credentials:** They are needed to run the app, run the tests, and deploy. Please check periodically that you have the latest credentials:
+
+```bash
+cd credentials && git pull origin master && cd ..
+```
+
+
 ## Contributing
 
 Please check out our [Contributing guides](https://github.com/survival/contributing-guides) and our [Code of conduct](https://github.com/survival/contributing-guides/blob/master/code-of-conduct.md)
