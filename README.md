@@ -11,6 +11,36 @@ The web app for Survival's donation system.
 
 ## How to use this project
 
+First clone the project:
+
+```bash
+$ git clone git@github.com:survival/donation-system-webapp.git
+$ cd donation-system-webapp
+```
+
+This is a Ruby project, so you need to have Ruby installed and ideally a Ruby version manager.
+You will need to tell your Ruby version manager to set your local Ruby version to the one specified in the `Gemfile`.
+
+For example, if you are using [rbenv](https://cbednarski.com/articles/installing-ruby/):
+
+1. Install the right Ruby version:
+```bash
+$ rbenv install < VERSION >
+$ rbenv rehash
+```
+1. Move to the root directory of this project and type:
+```bash
+$ rbenv local < VERSION >
+$ ruby -v
+```
+
+You will also need to install the `bundler` gem, which will allow you to install the rest of the dependencies listed in the `Gemfile` of this project.
+
+```bash
+$ gem install bundler
+$ rbenv rehash
+```
+
 
 ### To initialise the project
 
